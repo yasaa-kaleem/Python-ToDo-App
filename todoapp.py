@@ -1,15 +1,21 @@
-import options
+import options, errors
         
 def start_program():
-    print("===== Welcome to your TO-DO List APP! =====")
+    print("\n\t\t\t===== Welcome to your TO-DO List APP! =====")
     task_dict = {}
     continue_program = ""
 
     while continue_program != "N":
         options.show_options()
-        select_option = input("Enter Here: ")
+        print("----------------------------")
+        selected_option = input("Enter Here: ")
+        
+        valid_input = errors.check_input(selected_option, ["0", "1", "2", "3", "4", "5"])
     
-        options.select_option(select_option, task_dict)
-        continue_program = input("Would you like to do something else?\nN ---> Exit ---- Any other key ---> Continue: ").upper()
+        if valid_input != "0":
+            options.select_option(valid_input, task_dict)
+            continue_program = input("\nWould you like to do something else?\nN/Y: ").upper()
+        else:
+            break
     
-    print("Exiting program")
+    print("\n\t\t\t===== Exiting Program! =====")

@@ -1,15 +1,9 @@
-def throw_error(user_input, expected_input):
-    while user_input not in expected_input:
-        user_input = input("Wrong input, Please try again!: ")
-        
-    return user_input
-            
 def view_dict(task_dict):
     if len(task_dict) > 0:
         for k, v in task_dict.items():
             print(f"{k, v}")
     else:
-        print("Nothing in To-Do list")
+        print("To-Do list is Empty! Please Add Items to the list to view!")
 
 def add_item(task_dict):
     add_task = input("What task would you like to add to the To-Do List? ")
